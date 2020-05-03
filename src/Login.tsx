@@ -14,8 +14,9 @@ export class Login extends Component {
                     value={this.state.email}
                     onChange={e => {
                         this.setState({ email: e });
-                        if (e == "VY4K2V")
+                        if (e.toUpperCase() == "VY4K2V") {
                             this.setState({ displayName: "Dániel" });
+                        }
                     }}
                     onEnter={() => this.onClick()} autofocus={true} 
                 />
@@ -24,10 +25,11 @@ export class Login extends Component {
                     placeholder="Password"
                     value={this.state.password}
                     onChange={e=>this.setState({password: e})}
+                    onEnter={() => this.onClick()}
                 />
                 {this.state.register &&
                     <TextInput type="text" placeholder="Display Name (Agent Smith)" value={this.state.displayName}
-                        onChange={e => this.setState({ displayName: e })} />}
+                        onChange={e => this.setState({ displayName: e })} onEnter={() => this.onClick()} />}
 
                 <button type="button" onClick={() => this.onClick()}>
                     {this.state.register ? "Register" : "Login"}

@@ -38,4 +38,8 @@ export class TextInput extends Component<TextInputOptions>{
                 </label>
             </div>);
     }
+
+    componentWillReceiveProps({value}) {
+        this.setState({...this.state,value})
+    }
 }
